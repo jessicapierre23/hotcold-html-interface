@@ -1,15 +1,41 @@
 /*startover function needs to be outside of hotcold because if it's inside, it's not visible to outside of hotCold, like to button attribute*/
+
+
+	
+$('form').submit(function(e){
+    e.preventDefault();
+	return hotCold();
+});
+
+
+/*$('input').keypress(function(e){
+    if(e.keyCode == 13){
+	    e.preventDefault();
+        return hotCold();
+    }
+});*/
+
+document.getElementById('#userguess').onkeypress = function(e){
+    if(!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if(keyCode == '13'){
+        return hotCold();
+    }
+}
+
+
+
         
 	    function startOver() {
 			      ans = Math.floor((Math.random()*50)+1);
 				  return hotCold();
 				  /*in this html interface version of hotcold, it seems that pressing the reset button does "make extra calls to the server" because the page reloads. It does not do that in the hotcold game that uses the alert and prompt functions. How can I fix this, if that is the case?*/
-			  } //close startOver function
+			   } //close startOver function
 		
 		function overAll() {
 		 ans = Math.floor((Math.random()*50)+1); 
 		 /*don't use 'var' in variable declaration so variable can be public and accessible to hotCold function*/
-		    } //close overAll function
+		} //close overAll function
 	    
 		function hotCold() {
 		  //var ans = Math.floor((Math.random()*50)+1);

@@ -2,26 +2,31 @@
 <html>
    <head>
       <title>Hot and Cold Game with HTML Interface</title>
+	  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
       <script type="text/javascript" src="hotcold2.js">
 	 
       </script>
     </head>
     <body onload="overAll()";>
 	   <form id="game">
-	      <input type="text" id="userguess" onclick="hotCold()"; />
+	      <input type="text" id="userguess" ondblclick="hotCold()"; />
+		  
 		  <!--it seems that either ondblclick or click works in this case; ALSO, when I press enter after entering a guess in the text box, the program starts over and does not submit the answer - why is that? do i need to use an event name for pressing enter so that pressing enter DOES submit the guess?-->
 		  
-	      <!--for some reason using a Submit button to submit guesses did not work the way I wanted it to; the answer feedback appeared for a second in gamereply div then disappeared 
-		  <button>Submit</button>-->
+	      <!--for some reason using a Submit button to submit guesses did not work the way I wanted it to; the answer feedback appeared for a second in gamereply div then disappeared -->
+		  
+		  <input type="submit" />
           
 		  <button id="startover" onclick="startOver()";>Start Over</button>
+		  
+		 </form>
+		 
 		  <div id="gamereply">
 		  <p>Please enter a number between 1 and 50 inclusive.</p>
 		  
 		  <!--this div is where feedback about the user's answer appears; it also, for now, shows the answer because I was testing the code to make sure the random number stayed the same when it needed to; in initial code, a new random number would be generated when it actually needed to stay the same for the current guess attempts-->
 		  
 		  </div>
-	   </form>
     </body>
 
 </html>
