@@ -1,27 +1,31 @@
 /*startover function needs to be outside of hotcold because if it's inside, it's not visible to outside of hotCold, like to button attribute*/
 
-
+$(document).ready(function() {
 	
 $('form').submit(function(e){
     e.preventDefault();
-	return hotCold();
+	hotCold();
+});
+
+$('input').keypress(function(e){
+    if(e.keyCode == 13){
+	    //why don't i need a preventDefault statement for this though?
+        hotCold();
+    }
+});
+
 });
 
 
-/*$('input').keypress(function(e){
-    if(e.keyCode == 13){
-	    e.preventDefault();
-        return hotCold();
-    }
-});*/
 
-document.getElementById('#userguess').onkeypress = function(e){
+
+/*document.getElementById('#userguess').onkeypress = function(e){
     if(!e) e = window.event;
     var keyCode = e.keyCode || e.which;
     if(keyCode == '13'){
         return hotCold();
     }
-}
+}*/
 
 
 
