@@ -33,7 +33,7 @@ $('input').keypress(function(e){
 	    function startOver() {
 			      ans = Math.floor((Math.random()*50)+1);
 				  return hotCold();
-				  /*in this html interface version of hotcold, it seems that pressing the reset button does "make extra calls to the server" because the page reloads. It does not do that in the hotcold game that uses the alert and prompt functions. How can I fix this, if that is the case?*/
+			
 			   } //close startOver function
 		
 		function overAll() {
@@ -42,44 +42,41 @@ $('input').keypress(function(e){
 		} //close overAll function
 	    
 		function hotCold() {
-		  //var ans = Math.floor((Math.random()*50)+1);
+		  
            var gameform = document.getElementById("game");
 		   var input = gameform.elements[0].value;//input text box
 		      
 			  
 		      function test(guess) {
 			     if (guess == ans) 
-				  /*document.write("Correct"); I tried to do this for all the 
-				  if and else if statements, but document.write takes the program to a new page; why can't it just be added to current content? is that just how it is? 
-				  It also seems that using alert in these places didn't work either like it did in the hot/cold game that uses the prompt and alert functions. Is alert function not ideal for the html-interface version of the hot/cold game? */
-				  
-				  document.getElementById("gamereply").innerHTML = "<p>Correct</p>" + ans;
+				
+				  document.getElementById("gamereply").innerHTML = "<p>Correct</p>";
 			      
 				  
 				  else if (guess >= ans + 10 || guess <= ans - 10) 
-			      	document.getElementById("gamereply").innerHTML = "<p>Cold</p>"  + ans;
+			      	document.getElementById("gamereply").innerHTML = "<p>Cold</p>";
 				  	
 				  
 				 else if (guess >= ans + 5 || guess <= ans - 5) 
-          			document.getElementById("gamereply").innerHTML = "<p>Warm</p>"  + ans;
+          			document.getElementById("gamereply").innerHTML = "<p>Warm</p>";
 				  
 				 else 
-				 	document.getElementById("gamereply").innerHTML = "<p>Hot</p>"  + ans;
+				 	document.getElementById("gamereply").innerHTML = "<p>Hot</p>";
 				}//close test function
 				   
 			  		   
 		   if(isNaN(input)) 
-		     	document.getElementById("gamereply").innerHTML = "<p>Please enter a number</p>"  + ans;
+		     	document.getElementById("gamereply").innerHTML = "<p>Please enter a number</p>";
 		    
 			  
 		   else if (input == " ") 
-		       	document.getElementById("gamereply").innerHTML = "<p>Please enter a number</p>"  + ans;
+		       	document.getElementById("gamereply").innerHTML = "<p>Please enter a number</p>";
 		       
 		   else if (/\s+/.test(input)) 
-		       	document.getElementById("gamereply").innerHTML = "<p>Don't include any spaces</p>"  + ans;
+		       	document.getElementById("gamereply").innerHTML = "<p>Don't include any spaces</p>";
 		      
 		   else if (input < 1 || input > 50) 
-		      	document.getElementById("gamereply").innerHTML = "<p>Please enter a number between 1 and 50</p>"  + ans;
+		      	document.getElementById("gamereply").innerHTML = "<p>Please enter a number between 1 and 50</p>";
 		      
 			else test(input);
 			/*once input is tested for validity, then the test function is called to determine how hot/cold/warm the guess is*/
